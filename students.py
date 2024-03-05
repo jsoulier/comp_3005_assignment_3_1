@@ -5,6 +5,8 @@ import psycopg
 class Students:
     def __init__(self):
         ''' create database connections and ensure students exists '''
+
+        # force root directory and load config
         os.chdir(os.path.dirname(os.path.realpath(__file__)))
         with open('config.json', 'r', encoding='utf-8') as file:
             data = json.load(file)
@@ -29,7 +31,7 @@ class Students:
         if self.cursor.fetchone()[0]:
             return
 
-        # create and fill table if not exists
+        # create empty table
         self.cursor.execute(
             'CREATE TABLE IF NOT EXISTS Students ( '
             '    student_id SERIAL PRIMARY KEY, '
@@ -39,6 +41,8 @@ class Students:
             '    enrollment_date DATE '
             ') '
         )
+
+        # fill with initial data
         self.add_student('John', 'Doe', 'john.doe@example.com', '2023-09-01')
         self.add_student('Jane', 'Smith', 'jane.smith@example.com', '2023-09-01')
         self.add_student('Jim', 'Beam', 'jim.beam@example.com', '2023-09-02')

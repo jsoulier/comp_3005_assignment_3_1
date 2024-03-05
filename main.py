@@ -30,7 +30,10 @@ def main():
     except Exception as e:
         print(e)
     finally:
-        students.close()
+        try:
+            students.close()
+        except:
+            pass
 
 if __name__ == '__main__':
     main()
