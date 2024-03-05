@@ -1,4 +1,4 @@
-# COMP3005B - Assignment 3 Question 1
+# COMP3005: Assignment 3 Question 1
 
 ## Installing Dependencies
 
@@ -17,6 +17,10 @@ git clone https://github.com/jsoulier/comp_3005_assignment_3_1
 cd comp_3005_assignment_3_1
 python3 main.py
 ```
+
+## Video Explanation
+
+See [MP4](video.mp4) or [YouTube](https://youtu.be/-bI1Pw7y5qw).
 
 ## Configuration
 
