@@ -5,7 +5,6 @@ import psycopg
 class Students:
     def __init__(self):
         ''' create database connections and ensure students exists '''
-
         # force root directory and load config
         os.chdir(os.path.dirname(os.path.realpath(__file__)))
         with open('config.json', 'r', encoding='utf-8') as file:
@@ -23,9 +22,9 @@ class Students:
         self.cursor.execute(
             'SELECT EXISTS ('
             '    SELECT 1 '
-            '    FROM   information_schema.tables '
-            '    WHERE  table_schema = %s '
-            '    AND    table_name = %s '
+            '    FROM information_schema.tables '
+            '    WHERE table_schema = %s '
+            '    AND table_name = %s '
             ') ', ('public', 'students')
         )
         if self.cursor.fetchone()[0]:
